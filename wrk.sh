@@ -7,7 +7,7 @@ wrk="$(command -v wrk)"
 for b in 4096 4097 8429 8430 10000 40960 409600 4096000 ; do
 	for n in 1 2 10 100 ; do
 		echo -e -n "b=$b n=$n\t\t"
-		"$wrk" -c "$n" -t "$n" -d 3s http://localhost:8000/$b | grep "Req/Sec" | awk "{ print $2 }"
+		"$wrk" -c "$n" -t "$n" -d 3s http://localhost:8000/$b | grep "Req/Sec"
 	done
 done
 
